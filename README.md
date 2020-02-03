@@ -54,11 +54,11 @@ Otras versiones pueden funcionar, pero no han sido probadas y pueden presentar e
 
 ## Endpoints a funciones solicitadas
 
-* Cálculo de Puntación para un anuncio a partir de su ID_ANUNCIO (Sustituir {ID_ANUNCIO} por su valor numérico correspondiente):
+Cálculo de Puntación para un anuncio a partir de su ID_ANUNCIO (Sustituir {ID_ANUNCIO} por su valor numérico correspondiente):
  * PUT: http://localhost:8080/ad-ranking-challenge/calculateScore/{ID_ANUNCIO}
 
-* Consulta de anuncios públicos por el usuario:
+Consulta de anuncios públicos por el usuario:
  * GET: http://localhost:8080/ad-ranking-challenge/publicListing
 
-* Consulta de anuncios de calidad por el encargado de calidad:
+Consulta de anuncios de calidad por el encargado de calidad:
  * GET: http://localhost:8080/ad-ranking-challenge/qualityList
