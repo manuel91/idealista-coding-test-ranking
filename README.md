@@ -51,3 +51,14 @@ Otras versiones pueden funcionar, pero no han sido probadas y pueden presentar e
 * El código debe compilar y ser ejecutable :dancer:
 
 * Debes proporcionar 3 endpoints: Uno para calcular la puntuación de todos los anuncios, otro para listar los anuncios para un usuario de idealista y otro para listar los anuncios para el responsable de del departamento de gestión de calidad.
+
+## Endpoints a funciones solicitadas
+
+* Cálculo de Puntación para un anuncio a partir de su ID_ANUNCIO (Sustituir {ID_ANUNCIO} por su valor numérico correspondiente):
+ * PUT: http://localhost:8080/ad-ranking-challenge/calculateScore/{ID_ANUNCIO}
+
+* Consulta de anuncios públicos por el usuario:
+ * GET: http://localhost:8080/ad-ranking-challenge/publicListing
+
+* Consulta de anuncios de calidad por el encargado de calidad:
+ * GET: http://localhost:8080/ad-ranking-challenge/qualityList
