@@ -6,6 +6,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 @Repository
 public class InMemoryPersistence {
@@ -35,5 +37,32 @@ public class InMemoryPersistence {
         pictures.add(new PictureVO(8, "http://www.idealista.com/pictures/8", "HD"));
     }
 
-    //TODO crea los métodos que necesites
+    public AdVO getAdById(Integer id) {
+        return ads.stream().filter(ad -> id.equals(ad.getId())).findAny().orElse(null);
+    }
+
+    public List<AdVO> getRelevantAds() {
+        return ads.stream().filter(ad -> ad.getScore() != null && ad.getScore() >= 40).collect(Collectors.toList());
+    }
+
+    public List<AdVO> getIrrelevantAds() {
+        return ads.stream().filter(ad -> ad.getScore() == null || ad.getScore() < 40).collect(Collectors.toList());
+    }
+
+    public List<PictureVO> getAdPrictures(AdVO ad) {
+        return pictures.stream().filter(pic -> ad.getPictures().contains(pic.getId())).collect(Collectors.toList());
+    }
+
+    public Boolean saveAd(AdVO adInfo) {
+        Boolean updated = false;
+        Integer adIndex = IntStream.range(0, ads.size()).filter(index -> adInfo.getId().equals(ads.get(index).getId())).findFirst().orElse(-1);
+
+        if (adIndex > 0) {
+            ads.set(adIndex, adInfo);
+            updated = true;
+        }
+
+        return updated;
+    }
+
 }
